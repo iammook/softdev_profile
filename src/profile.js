@@ -47,7 +47,8 @@ function profile(){
                                 >
                                     <div id="icon">
                                         {val.icon}
-                                    </div> 
+    
+                                  </div> 
                                     <div id="title"> 
                                         {val.title}
                                     </div>
