@@ -56,7 +56,7 @@ const Home2 = ()=> {
             <div><Profile/></div> 
             {/* className = 'pageStyle' */}
             {/* <profile/> */}
-            <div className = 'contact-section'>
+            {/* <div className = 'contact-section'>
                 <div class='bottom-icon-pad'>
                         <img class ='bottom-icon' src={Bottom_logo_icon}></img>
                         <div class = 'bottom-icon-text'>PetMe</div>
@@ -91,7 +91,7 @@ const Home2 = ()=> {
                             <div class='contact-text'>ประเทศไทย 10520</div>
                         </div>
                 </div>
-            </div>
+            </div> */}
         </div>
         </div>
     )

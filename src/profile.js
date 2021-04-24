@@ -60,6 +60,85 @@ function profile(){
                 </div>
                 <div className="tab_two">                  
                     {/* <div className = "space"></div> */}
+                    <div className = "head_row">
+                        <p>รายละเอียดบัญชี</p>
+                    </div>
+                        <div className ="Ac_row">
+                            <div id="name">
+                                <p>ชื่อผู้ใช้งาน</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>ชื่อ-นามสกุล</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>อีเมล</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>เบอร์โทรศัพท์</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>วันเกิด</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>เพศ</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                    <div className = "head_row">
+                        <p>รายละเอียดที่อยู่</p>
+                    </div>
+                        <div className ="Ac_row">
+                            <div id="name">
+                                <p>ชื่อผู้ใช้งาน</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>ชื่อ-นามสกุล</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>อีเมล</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>เบอร์โทรศัพท์</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>วันเกิด</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+                        <div className ="Ac_row">
+                            <div  id="name">
+                                <p>เพศ</p>           
+                            </div> 
+                            <input type="text" value="" placeholder={Account} id="text"></input>
+                        </div>
+
                 </div>
             </div>
         </div>
