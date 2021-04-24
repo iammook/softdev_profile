@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+/*------------------------------------------------- H O M E T A P -----------------------------------------------*/
+
+.menu {
+  font-family: 'Kanit';
+  text-decoration: none;
+  list-style-type:  none;
+  align-items: center;
+}
+
+nav {
+  background: linear-gradient(0deg, #00AFB9, #00AFB9), #0081A7;
+  box-shadow: 0px 2px 4px rgba(0, 129, 167, 0.25);
+  padding: 5px 20px;
+  height: 79px;
+}
+.sizePane {
+  height:max-content;
+  /* border: 5px solid green; */
+}
+.profile-icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.menu-logo a:hover {
+  text-decoration: none;
+}
+.menu-logo-img {
+  height: 61px;
+  width: 63px;
+}
