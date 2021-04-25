@@ -62,8 +62,10 @@ html,body {
     /* background-color: darkblue; */
   }
   
-  /* ------------------------------tab_one-------------------------------------- */
+
+  /* --------------------------------------------------Profile bar left-------------------------------------------------- */
   
+
   .content2{
     width: 100%;
     height: 100vh;
@@ -122,7 +124,7 @@ html,body {
     width: 80%;
     height: auto;
     margin: auto;
-    /* background-color: black; */
+    /* background-color: rgb(200, 227, 250); */
   }
   
   
@@ -170,30 +172,84 @@ html,body {
     display: flex;
     place-items: start;
   }
+
+  .sell-pane{
+    margin-top: 25px;
+}
+
+  .sell-button{
+    /* font-family: 'Kanit'; */
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+    font-size: 22px;
+    color: white;
+
+    width: 200px;
+    height: 70px;
+    background: #ED8E82;
+    border: 3px solid #ED8E82;
+    border-radius: 50px;
+}
+
+
+.sell-button:hover{
+    color: #ED8E82;
+    background: white;
+    cursor: pointer;
+}
+  
+  .text-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(177, 105, 12);
+  }
   
   
-  .tab_two{
-    /* position: relative; */
+  
+
+  .tab_four{
+    /* position: absolute; */
     width: 1200px;
     height:  100%;
     /* height:auto!important; */
     /* max-height: 2500px; */
-    padding-top: 50px;
-    background-color: rgb(20, 144, 216);
+    margin-top: 20px;
+    padding-top: 0px;
+    background-color: rgb(107, 11, 51);
     display:  flex;
     flex-direction: column;
     text-align: center;
     align-content: center;
-    justify-content: flex-start;
-    
+    justify-content: flex-start; 
   }
   
-  .head_row{
+  /* --------------------------------------------------ACCOUNT PAGE-------------------------------------------------- */
+  
+  .account_details{
+    width: 1200px;
+    height: 1400px;
+    /* height:auto!important; */
+    /* max-height: 2500px; */
+    margin-top: 20px;
+    padding-top: 0px;
+    /* background-color: rgb(148, 154, 158); */
+    display:  flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    justify-content: flex-start; 
+  } 
+
+  .head_topic{
     font-family: 'Prompt', sans-serif;
     font-weight: bold;
     font-size:  20px;
     width: 18%;
-    height: 55px;
+    height: 70px;
     background-color: #00AFB9;
     margin-left: 100px;
     margin-top: 30px;
@@ -207,7 +263,7 @@ html,body {
     /* border:  solid rgb(231, 230, 230); */
   }
   
-  .Ac_row{
+  .Account_Text{
     font-family: 'Prompt', sans-serif;
     font-weight: bold;
     font-size:  20px;
@@ -217,7 +273,7 @@ html,body {
     border-left-style: none;
     border-right-style: none;
     list-style-type: none;
-    margin: 0%;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -225,7 +281,7 @@ html,body {
     /* background-color: aqua; */
   }
   
-  .Ac_row #name{
+  .Account_Text #name{
     margin-left: 15%;
     flex: 10%;
     /* background-color: blue; */
@@ -233,37 +289,417 @@ html,body {
     place-items: start;
   }
   
-  .Ac_row #text{
+  .Account_Text #text{
     flex: 50%;
     /* width: 50px; */
     height: 50px;
     margin-right: 20%;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(243, 243, 243);
     border-radius: 10px;
     border: none;
     /* width: 20px; */
   }
   
-  .space{
-    height: 10vh;
-    background-color: burlywood;
+
+  .Account_Text #text_edit{
+    flex: 50%;
+    /* width: 50px; */
+    height: 50px;
+    margin-right: 20%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    /* border-color:  rgb(255, 255, 255); */
+    border: 2px solid rgb(180, 180, 180);
   }
   
-  @media all and (max-width: 900px) {
-    /* .img_border{
-      position: absolute; 
-      width: 100%;
-      height: auto;
-      background-color: rgb(112, 111, 111);
-      margin-top: 0%;
-      top: 0%;
-      display: grid;
-      text-align: center;
-      align-content: center;
-      justify-content: center;
-    
-    } */
+  .Edit-pane{
+    margin-top: 25px;
+    margin-left: 40%;
+}
+
+  .Edit-button{
+    /* font-family: 'Kanit'; */
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+    font-size: 22px;
+    color: white;
+
+    width: 200px;
+    height: 70px;
+    background: #ED8E82;
+    border: 3px solid #ED8E82;
+    border-radius: 50px;
+}
+
+
+.Edit-button:hover{
+    color: #ED8E82;
+    background: white;
+    cursor: pointer;
+}
+
+.Edit2-pane{
+  margin-top: 25px;
+  margin-left: 40%;
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  /* background-color: cadetblue; */
+}
+.account_details_edit{
+  width: 1200px;
+  height: 1800px;
+  /* height:auto!important; */
+  /* max-height: 2500px; */
+  margin-top: 20px;
+  padding-top: 0px;
+  /* background-color: rgb(148, 154, 158); */
+  display:  flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: flex-start; 
+}  
+
+.Edit2-button{
+  /* font-family: 'Kanit'; */
+  font-weight: bold;
+  font-family: 'Prompt', sans-serif;
+  font-size: 22px;
+  color: white;
+
+  width: 200px;
+  height: 70px;
+  background: #ED8E82;
+  border: 3px solid #ED8E82;
+  border-radius: 50px;
+}
+.Edit2-button:hover{
+  color: #ED8E82;
+  background: white;
+  cursor: pointer;
+}
+  
+  .text-row{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(177, 105, 12);
   }
+
+
+
+/* --------------------------------------------------LIKE PAGE-------------------------------------------------- */
+
+
+.like_page{
+  /* position: absolute; */
+  width: 1200px;
+  height:  100%;
+  /* height:auto!important; */
+  /* max-height: 2500px; */
+  margin-top: 20px;
+  padding-top: 0px;
+  /* background-color: rgb(187, 216, 20); */
+  display:  flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: flex-start; 
+}
+
+
+/* --------------------------------------------------STORE PAGE-------------------------------------------------- */
+
+
+.store_page{
+  /* position: absolute; */
+  width: 1200px;
+  height:  100%;
+  /* height:auto!important; */
+  /* max-height: 2500px; */
+  margin-top: 20px;
+  padding-top: 0px;
+  /* background-color: rgb(187, 216, 20); */
+  display:  flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: flex-start; 
+}
+
+/* --------------------------------------------------CARD PAGE-------------------------------------------------- */
+
+
+.cards_all {
+  background-color: rgb(160, 28, 28);
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: auto;
+  padding-top: 0;
+  justify-content: space-between;
+  background-color: rgb(155, 141, 141);
+}
+
+.cards__wrapper {
+  position: relative;
+  height: 400px;
+  margin: 50px 0 45px;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(63, 172, 148);
+}
+
+.img_text{
+  position: relative;
+  width: 45%;
+  height: 100%;
+  display: flex;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  background-color: rgb(184, 172, 0);
+}
+
+.img_list{
+  width: 90%;
+  height: 65%;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.img_text_bottom{
+  width: 90%;
+  height: 35%;
+  background-color: crimson;
+}
+.cards__items {
+  margin-bottom: 24px;
+}
+
+.cards__item {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+}
+
+.cards__item__link {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cards__item__pic-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 67%;
+  overflow: hidden;
+}
+
+.fade-img {
+  animation-name: fade-img;
+  animation-duration: 2s;
+}
+
+.cards__item__pic-wrap::after {
+  content: attr(data-category);
+  position: absolute;
+  bottom: 0;
+  margin-left: 10px;
+  padding: 6px 8px;
+  max-width: calc((100%) - 60px);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #1f98f4;
+  box-sizing: border-box;
+}
+
+.cards__item__img {
+  position: absolute;
+  top: 500px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 70%;
+  max-width: 100%;
+  height: 70%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+  background-color: coral;
+}
+
+.cards__item__img:hover {
+  transform: scale(1.1);
+}
+
+.cards__item__info {
+  padding: 20px 30px 30px;
+}
+
+.cards__item__text {
+  color: #252e48;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .content__blog__container {
+    width: 84%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .cards__items {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cards__item {
+    margin-bottom: 2rem;
+  }
+}.cards {
+  padding: 4rem;
+  background: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+.cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards__wrapper {
+  position: relative;
+  margin: 50px 0 45px;
+}
+
+.cards__items {
+  margin-bottom: 24px;
+}
+
+.cards__item {
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 10px;
+}
+
+.cards__item__link {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
+  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+  border-radius: 10px;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cards__item__pic-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 67%;
+  overflow: hidden;
+}
+
+.fade-img {
+  animation-name: fade-img;
+  animation-duration: 2s;
+}
+
+.cards__item__pic-wrap::after {
+  content: attr(data-category);
+  position: absolute;
+  bottom: 0;
+  margin-left: 10px;
+  padding: 6px 8px;
+  max-width: calc((100%) - 60px);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #1f98f4;
+  box-sizing: border-box;
+}
+
+.cards__item__img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+}
+
+.cards__item__img:hover {
+  transform: scale(1.1);
+}
+
+.cards__item__info {
+  padding: 20px 30px 30px;
+}
+
+.cards__item__text {
+  color: #252e48;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .content__blog__container {
+    width: 84%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .cards__items {
+    display: flex;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .cards__item {
+    margin-bottom: 2rem;
+  }
+}
 
 
 /*-----------------------------------------------------------  M I N E  -----------------------------------------------------------*/
@@ -301,8 +737,11 @@ html,body {
 .profile-wallpaper-text{
     height: 500px;
     width: 100%;
-    font-family: 'Kanit';
-    font-size: 30px;
+    /* font-family: 'Kanit';
+    font-size: 30px; */
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    font-size:  30px;
     color: white;
     border: transparent;
     justify-content: center;
@@ -310,6 +749,7 @@ html,body {
     display: flex;;
     flex-direction: row;
     background-color: transparent;
+    /* background-color: blueviolet; */
 }
 .profile-wallpaper-text.hover{
     cursor:default;
@@ -337,6 +777,7 @@ html,body {
     top: 6.77%;
     bottom: 0%;
     min-height: 1000px;
+    /* background-color: rgb(236, 207, 225); */
 }
 
 .Profile_leftside_pic{
@@ -346,42 +787,59 @@ html,body {
     border-radius: 15px;
 }
 
-
-
-/*------------------------- P A Y M E N T ------------------------------------*/
+/* --------------------------------------------------PAYMENT PAGE-------------------------------------------------- */
   
 .rightside-pad{
     display: flex;
     flex-direction: row;
+    /* background-color: rgb(115, 94, 134); */
+}
+
+.payment{
+  /* position: absolute; */
+  width: 1200px;
+  height:  100%;
+  /* height:auto!important; */
+  /* max-height: 2500px; */
+  margin-top: 20px;
+  padding-top: 0px;
+  /* background-color: rgb(116, 69, 170); */
+  display:  flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  justify-content: flex-start; 
 }
 
 .money-tab{
-    width: 1000px;
+    width: 100%;
     height: 180px;
     align-items: center;
     justify-content: center;
     display: flex;
+    /* background-color: blueviolet; */
 }
 .money-header{
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-weight: bold;
-    font-family: 'Kanit';
-    font-size: 20px;
+    font-size:  20px;
     color: black;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 30px;
     margin-top: 80px;
-
-    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(219, 139, 139); */
 }
 .money-header:hover{
     cursor: pointer;
     color: #00AFB9;
 }
 .money-header-selected {
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-weight: bold;
-    font-family: 'Kanit';
-    font-size: 20px;
+    font-size:  20px;
     margin-left: 40px;
     margin-right: 40px;
     margin-bottom: 30px;
@@ -391,15 +849,17 @@ html,body {
 .money-info-pane{
     border: 1px solid rgb(134, 134, 134);
     margin-left: 10%;
-    width: 800px;
-    
+    width: 800px;   
+    /* background-color: rgb(96, 116, 78); */
 }
+
 .money-table-row{
     min-height: 50px;
     width: 800px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    /* background-color: chartreuse; */
 }
 .col1-tools-header{
 
@@ -408,10 +868,11 @@ html,body {
     border: 1px solid rgb(134, 134, 134);
 }
 .col1-tools{
-    font-family: 'Kanit';
-    font-size: 30px;
-    color: black;
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-weight: bold;
+    font-size:  30px;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -446,9 +907,12 @@ html,body {
     border-radius: 20px;
 }
 .col3-name-header{
-    font-weight: bold;
+    /* font-weight: bold;
     font-family: 'Kanit';
-    font-size: 20px;
+    font-size: 20px; */
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    font-size:  20px;
     color: black;
 
     display: flex;
@@ -460,9 +924,10 @@ html,body {
     border: 1px solid rgb(134, 134, 134);
 }
 .col3-name{
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-weight: bold;
-    font-family: 'Kanit';
-    font-size: 20px;
+    font-size:  20px;
     color: black;
 
     display: flex;
@@ -474,9 +939,10 @@ html,body {
     border: 1px solid rgb(134, 134, 134);
 }
 .col4-price-header{
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-weight: bold;
-    font-family: 'Kanit';
-    font-size: 20px;
+    font-size:  20px;
     color: black;
     display: flex;
     align-items: center;
@@ -486,8 +952,11 @@ html,body {
     border: 1px solid rgb(134, 134, 134);
 }
 .col4-price{
-    font-family: 'Kanit';
-    font-size: 20px;
+    /* font-family: 'Kanit';
+    font-size: 20px; */
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    font-size:  20px;
     color: #ED8E82;
     font-weight: bold;
 
@@ -500,7 +969,8 @@ html,body {
 }
 .col5-amount-header{
     font-weight: bold;
-    font-family: 'Kanit';
+    font-family: 'Prompt', sans-serif;
+    /* font-family: 'Kanit'; */
     font-size: 20px;
     color: black;
 
@@ -514,7 +984,8 @@ html,body {
 .col5-amount{
     
     font-weight: bold;
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 20px;
     color: black;
 
@@ -527,7 +998,8 @@ html,body {
 }
 .col6-total-header{
     font-weight: bold;
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 20px;
     color: black;
     
@@ -540,7 +1012,8 @@ html,body {
 }
 .col6-total{
     font-weight: bold;
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 20px;
     color: #ED8E82;
 
@@ -562,7 +1035,8 @@ html,body {
 
 .money-bottom-blog{
     font-weight: bold;
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 20px;
     color: #000000;
     width: 400px;
@@ -576,7 +1050,8 @@ html,body {
 
 .money-bottom-value{
     font-weight: bold;
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 18px;
     color: #ED8E82;
     width: 400px;
@@ -593,10 +1068,12 @@ html,body {
     width: 800px;
     height: 500px;
     margin-left: 10%;
+    /* background-color: brown; */
 }
 
 .money-button{
-    font-family: 'Kanit';
+    /* font-family: 'Kanit'; */
+    font-family: 'Prompt', sans-serif;
     font-size: 22px;
     color: white;
 

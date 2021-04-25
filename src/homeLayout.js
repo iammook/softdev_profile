@@ -53,7 +53,7 @@ const Home2 = ()=> {
             </nav>
             <div className= 'sizePane'> 
             {/* <div><profile/>Hello</div>         */}
-            <div><Profile/></div> 
+            {/* <div><Profile/></div>  */}
             {/* className = 'pageStyle' */}
             {/* <profile/> */}
             {/* <div className = 'contact-section'>
