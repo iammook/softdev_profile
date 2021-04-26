@@ -8,12 +8,13 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-
-// import Bell_icon_src from '../homePage/img/bell-icon.png'
-// import Logo_icon_src from '../homePage/img/top-icon.png'
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 import Wall_dog from './img/wallpaper.jpg'
 import Profile_Dog from './img/profile3.jpg'
+import Profile_Dog2 from './img/profile1.jpg'
 
 import Profile_leftside_pic_src from './img/cat.jpg'
 import Profile_item1_src from './img/item1.jpg'
@@ -22,6 +23,7 @@ import Profile_icon_src from './img/profile.jpg'
 import Profile_wallpaper_src from './img/wall.jpg'
 
 import PopUp from './popUp'
+import PopUpExit from './PopUpExit'
 import {
     BrowserRouter as Router,
     useHistory ,                              
@@ -32,30 +34,39 @@ import {
 } from "react-router-dom";
 // import validator from 'validator'
 
-import CardItem from './CardItem';
-import PetCard from '.PetCard'
+import CardItem_Accept from './CardItem_Accept';
+import CardItem_Wait from './CardItem_Wait';
+import CardStore from './CardStoreSell';
+import CardStoreSold from './CardStoreSold';
+import CardStoreSell from './CardStoreSell';
+import UserLike from './UserLike'
+import UserAccept from './UserAccept'
+import UserCancle from './UserCancle'
 
 
 library.add(fas, fab, far);
 
 const Profile = () => {
-    const [profileTab, setprofileTab] = useState([true, false, false, false, false])
+    const [profileTab, setprofileTab] = useState([true, false, false, false, false, false])
 
     const profileSwitch = (selectedTab) => {
         if (selectedTab === 1) {
-            setprofileTab([true, false, false, false, false])
+            setprofileTab([true, false, false, false, false, false])
         }
         else if (selectedTab === 2) {
-            setprofileTab([false, true, false, false, false])
+            setprofileTab([false, true, false, false, false, false])
         }
         else if (selectedTab === 3) {
-            setprofileTab([false, false, true, false, false])
+            setprofileTab([false, false, true, false, false, false])
         }
         else if (selectedTab === 4) {
-            setprofileTab([false, false, false, true, false])
+            setprofileTab([false, false, false, true, false, false])
+        }
+        else if (selectedTab === 5) {
+            setprofileTab([false, false, false, false, true, false])
         }
         else {
-            setprofileTab([false, false, false, false, true])
+            setprofileTab([false, false, false, false, false, true])
         }
     }
 
@@ -76,227 +87,235 @@ const Profile = () => {
             // getTotalPaid()
         }
     }
+    // --------------------------------------------Exit Page----------------------------------------------------------
+    const showPopUpExit = (type) => {
+        if (type === 'Exit') {
+            setPopUpExit(true)
+            // getTotalPaid()
+        }
+    }
 
     // ******************Edit****************
     
-    var Username,Password,Name,Email,Tell,Birth,Address,Road,Sub_district,District,Province,Postal_code;
+    // var Username,Password,Name,Email,Tell,Birth,Address,Road,Sub_district,District,Province,Postal_code;
 
-    const Register = () => {
+    // const Register = () => {
 
-    const inputRefs = React.useRef([
-        React.createRef(), React.createRef(),
-        React.createRef(), React.createRef(),
-        React.createRef(), React.createRef(),
-        React.createRef(), React.createRef(),
-        React.createRef(), React.createRef(),
-        React.createRef(), React.createRef(),
+    // const inputRefs = React.useRef([
+    //     React.createRef(), React.createRef(),
+    //     React.createRef(), React.createRef(),
+    //     React.createRef(), React.createRef(),
+    //     React.createRef(), React.createRef(),
+    //     React.createRef(), React.createRef(),
+    //     React.createRef(), React.createRef(),
 
-    ]);
+    // ]);
 
-    var maxID = '15'
-    var maxName = '20'
-    var maxPass = '15'
-    var maxEmail = '20'
-    var maxMobile = '10'
-    var maxAddress = '40'
-    var maxRoad = '20'
+    // var maxID = '15'
+    // var maxName = '20'
+    // var maxPass = '15'
+    // var maxEmail = '20'
+    // var maxMobile = '10'
+    // var maxAddress = '40'
+    // var maxRoad = '20'
 
-    const [emailErrorSign, setEmailErrorSign] = useState(' ')
-    const [mobileErrorSign, setMobileErrorSign] = useState(' ')
-    const [passErrorSign, setPassErrorSign] = useState(' ')
-    const [nameErrorSign, setNameErrorSign] = useState(' ')
-    const [IDErrorSign, setIDErrorSign] = useState(' ')
-    const [roadErrorSign, setRoadErrorSign] = useState(' ')
-    const [addressErrorSign, setAddressErrorSign] = useState(' ')
-    const [dateErrorSign, setDateErrorSign] = useState(' ')
-    const [district,setDistrict] = useState(' ')
-    const [subDistrict,setSubDistrict] = useState(' ')
-    const [province,setProvince] = useState(' ')
-    const [postalCode,setPostalCode] = useState(' ')
+    // const [emailErrorSign, setEmailErrorSign] = useState(' ')
+    // const [mobileErrorSign, setMobileErrorSign] = useState(' ')
+    // const [passErrorSign, setPassErrorSign] = useState(' ')
+    // const [nameErrorSign, setNameErrorSign] = useState(' ')
+    // const [IDErrorSign, setIDErrorSign] = useState(' ')
+    // const [roadErrorSign, setRoadErrorSign] = useState(' ')
+    // const [addressErrorSign, setAddressErrorSign] = useState(' ')
+    // const [dateErrorSign, setDateErrorSign] = useState(' ')
+    // const [district,setDistrict] = useState(' ')
+    // const [subDistrict,setSubDistrict] = useState(' ')
+    // const [province,setProvince] = useState(' ')
+    // const [postalCode,setPostalCode] = useState(' ')
     
     
-    const history = useHistory();
+    // const history = useHistory();
 
-    const [selectedDate, setSelectedDate] = useState()
+    // const [selectedDate, setSelectedDate] = useState()
 
-    const validateID = (e) => {
-        var idInput = e
-        var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-        if(idInput.length < 6 && idInput.length != 0){ setIDErrorSign('ชื่อผู้ใช้งานต้องมีความยาวอย่างน้อย 6 ตัวอักษร') }
-        else if(format.test(idInput)){setIDErrorSign('ชื่อผู้ใช้งานห้ามมีอักขระพิเศษ ')}
-        else if(idInput.length == 0) {
-        setIDErrorSign('กรุณากรอกชื่อผู้ใช้งาน')
-        } else{
-        setIDErrorSign('✔')
-        }
-    }
-
-    const validateAddress = (e) => {
-        var addresesInput = e.target.value
-        var format = /[`!@#$%^&*_+\-=\[\]{};':"\\|<>\?~]/;
-        if(format.test(addresesInput)){setAddressErrorSign('ที่อยู่ห้ามมีอักขระพิเศษ')}
-        else if(addresesInput.length == 0) {
-        setAddressErrorSign('กรุณากรอกที่อยู่ให้ครบถ้วน')
-        } else{
-        setAddressErrorSign('✔')
-        }
-    }
-    const validateRoad = (e) => {
-        var roadInput = e.target.value
-        var format = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
-        if(format.test(roadInput)){setRoadErrorSign('ชื่อผู้ใช้งานห้ามมีอักขระพิเศษ ')}
-        else{
-        setRoadErrorSign('✔')
-        }
-    }
-    const validatePassword = (passInput) => {
-        var format = /[ `!@#$%^&()+\-=\[\]{};':"\\|,.<>\/?~]/;
-        if(passInput.length < 6 && passInput.length != 0){ setPassErrorSign('รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร') }
-        else if(format.test(passInput)){setPassErrorSign('รหัสผ่านห้ามมีอักขระพิเศษ ยกเว้น *_ ')}
-        else if(passInput.length == 0) {
-        setPassErrorSign('กรุณากรอกรหัสผ่าน')
-        } else{
-        setPassErrorSign('✔')
-        }
-    }
-    const validateDate = (start) => {
-        setSelectedDate(start)
-
-        var month = Number(start[0]+start[1])
-        var day = Number(start[3]+start[4])
-        var year = Number(start[6]+start[7]+start[8]+start[9])
-        //console.log(month+' '+day+' '+year)
-
-        var end = JSON.stringify(new Date())
-        var curDay= ''
-        for (let i = 1; i < 11; i++) {
-        curDay = curDay+end[i]
-        }
-        var cur_month = Number(curDay[5]+curDay[6])
-        var cur_day = Number(curDay[8]+curDay[9])
-        var cur_year = Number(curDay[0]+curDay[1]+curDay[2]+curDay[3])
-        //console.log(cur_month+' '+cur_day+' '+cur_year)
-        //console.log('gap : '+ age)
-        if(cur_year-year>20 && cur_year-year<100){
-        setDateErrorSign('✔')}
-        else if(cur_year-year === 20){
-        if(cur_month-month>0){
-            setDateErrorSign('✔')}
-        else if(cur_month-month === 0){
-            if(cur_day-day>=0){
-            setDateErrorSign('✔')}
-            else setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
-        }
-        else setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
-        }
-        else{
-        setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
-        }
-
-    }
-    const validateName = (e) => {
-        var nameInput = e.target.value
-        var format = /[`!@#$%^&()+*_\-=\[\]{};':"\\|,.<>\/?~]/;
-        if(format.test(nameInput)){setNameErrorSign('ชื่อจริงห้ามมีอักขระพิเศษ')}
-        else if(nameInput.length === 0) {
-        setNameErrorSign('กรุณากรอกชื่อและนามสกุล')
-        } else{
-        setNameErrorSign('✔')
-        }
-    }
-
-    // const validateEmail = (e) => {
-    //     var email = e.target.value
-        
-    //     if (validator.isEmail(email)) {
-    //     setEmailErrorSign('✔')
-    //     } else if(e.target.value){
-    //     setEmailErrorSign('✘')
-    //     }else{
-    //     setEmailErrorSign('กรุณากรอกอีเมลล์')
+    // const validateID = (e) => {
+    //     var idInput = e
+    //     var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    //     if(idInput.length < 6 && idInput.length != 0){ setIDErrorSign('ชื่อผู้ใช้งานต้องมีความยาวอย่างน้อย 6 ตัวอักษร') }
+    //     else if(format.test(idInput)){setIDErrorSign('ชื่อผู้ใช้งานห้ามมีอักขระพิเศษ ')}
+    //     else if(idInput.length == 0) {
+    //     setIDErrorSign('กรุณากรอกชื่อผู้ใช้งาน')
+    //     } else{
+    //     setIDErrorSign('✔')
     //     }
     // }
-    const validMobile = (mobilePhone) =>{
-        if(mobilePhone.length === 10 && mobilePhone[0] === '0' && (mobilePhone[1]==='9' || mobilePhone[1]==='6' || mobilePhone[1]==='8' )){
-        for (var i = 0; i < 10; i++) {
-            if(mobilePhone[i]<'0' || mobilePhone[i]>'9'){
-            return false
-            } 
-        }
-        return true
-        }
-        else return false
-    }
 
-    const validateMobilePhone = (e) => {
-        var mobilePhone = e.target.value
+    // const validateAddress = (e) => {
+    //     var addresesInput = e.target.value
+    //     var format = /[`!@#$%^&*_+\-=\[\]{};':"\\|<>\?~]/;
+    //     if(format.test(addresesInput)){setAddressErrorSign('ที่อยู่ห้ามมีอักขระพิเศษ')}
+    //     else if(addresesInput.length == 0) {
+    //     setAddressErrorSign('กรุณากรอกที่อยู่ให้ครบถ้วน')
+    //     } else{
+    //     setAddressErrorSign('✔')
+    //     }
+    // }
+    // const validateRoad = (e) => {
+    //     var roadInput = e.target.value
+    //     var format = /[`!@#$%^&*()_+\=\[\]{};':"\\|,.<>\/?~]/;
+    //     if(format.test(roadInput)){setRoadErrorSign('ชื่อผู้ใช้งานห้ามมีอักขระพิเศษ ')}
+    //     else{
+    //     setRoadErrorSign('✔')
+    //     }
+    // }
+    // const validatePassword = (passInput) => {
+    //     var format = /[ `!@#$%^&()+\-=\[\]{};':"\\|,.<>\/?~]/;
+    //     if(passInput.length < 6 && passInput.length != 0){ setPassErrorSign('รหัสผ่านต้องมีความยาวอย่างน้อย 6 ตัวอักษร') }
+    //     else if(format.test(passInput)){setPassErrorSign('รหัสผ่านห้ามมีอักขระพิเศษ ยกเว้น *_ ')}
+    //     else if(passInput.length == 0) {
+    //     setPassErrorSign('กรุณากรอกรหัสผ่าน')
+    //     } else{
+    //     setPassErrorSign('✔')
+    //     }
+    // }
+    // const validateDate = (start) => {
+    //     setSelectedDate(start)
+
+    //     var month = Number(start[0]+start[1])
+    //     var day = Number(start[3]+start[4])
+    //     var year = Number(start[6]+start[7]+start[8]+start[9])
+    //     //console.log(month+' '+day+' '+year)
+
+    //     var end = JSON.stringify(new Date())
+    //     var curDay= ''
+    //     for (let i = 1; i < 11; i++) {
+    //     curDay = curDay+end[i]
+    //     }
+    //     var cur_month = Number(curDay[5]+curDay[6])
+    //     var cur_day = Number(curDay[8]+curDay[9])
+    //     var cur_year = Number(curDay[0]+curDay[1]+curDay[2]+curDay[3])
+    //     //console.log(cur_month+' '+cur_day+' '+cur_year)
+    //     //console.log('gap : '+ age)
+    //     if(cur_year-year>20 && cur_year-year<100){
+    //     setDateErrorSign('✔')}
+    //     else if(cur_year-year === 20){
+    //     if(cur_month-month>0){
+    //         setDateErrorSign('✔')}
+    //     else if(cur_month-month === 0){
+    //         if(cur_day-day>=0){
+    //         setDateErrorSign('✔')}
+    //         else setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
+    //     }
+    //     else setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
+    //     }
+    //     else{
+    //     setDateErrorSign('ผู้ใช้งานต้องมีอายุระหว่าง 20 ถึง 100 ปีบริบูรณ์')
+    //     }
+
+    // }
+    // const validateName = (e) => {
+    //     var nameInput = e.target.value
+    //     var format = /[`!@#$%^&()+*_\-=\[\]{};':"\\|,.<>\/?~]/;
+    //     if(format.test(nameInput)){setNameErrorSign('ชื่อจริงห้ามมีอักขระพิเศษ')}
+    //     else if(nameInput.length === 0) {
+    //     setNameErrorSign('กรุณากรอกชื่อและนามสกุล')
+    //     } else{
+    //     setNameErrorSign('✔')
+    //     }
+    // }
+
+    // // const validateEmail = (e) => {
+    // //     var email = e.target.value
         
-        if (validMobile(mobilePhone)) {
-        setMobileErrorSign('✔')
-        } else if(e.target.value){
-        setMobileErrorSign('✘')
-        }else{
-        setMobileErrorSign('กรุณากรอกเบอร์')
-        }
-    }
+    // //     if (validator.isEmail(email)) {
+    // //     setEmailErrorSign('✔')
+    // //     } else if(e.target.value){
+    // //     setEmailErrorSign('✘')
+    // //     }else{
+    // //     setEmailErrorSign('กรุณากรอกอีเมลล์')
+    // //     }
+    // // }
+    // const validMobile = (mobilePhone) =>{
+    //     if(mobilePhone.length === 10 && mobilePhone[0] === '0' && (mobilePhone[1]==='9' || mobilePhone[1]==='6' || mobilePhone[1]==='8' )){
+    //     for (var i = 0; i < 10; i++) {
+    //         if(mobilePhone[i]<'0' || mobilePhone[i]>'9'){
+    //         return false
+    //         } 
+    //     }
+    //     return true
+    //     }
+    //     else return false
+    // }
 
-    const submitRegisterForm = (next) => {
+    // const validateMobilePhone = (e) => {
+    //     var mobilePhone = e.target.value
         
-        console.log('submit')
-        if(
-        emailErrorSign === '✔' &&
-        mobileErrorSign === '✔' &&
-        passErrorSign === '✔' &&
-        nameErrorSign === '✔' &&
-        IDErrorSign === '✔' &&
-        roadErrorSign === '✔' &&
-        addressErrorSign === '✔' &&
-        dateErrorSign === '✔'
-        ){
-        let configObj = {
-            method: "POST",
-            headers :{
-            "Content-Type":"application/json",
-            "Accept":"application/json"
-            },
-            body:JSON.stringify({
-            Username : Username,
-            Password:Password,
-            Name:Name,
-            Email:Email,
-            Tell:Tell,
-            Birth:Birth,
-            Address:Address,
-            Road:Road,
-            District:district,
-            Sub_District:subDistrict,
-            Province:province,
-            Postal_code:postalCode
-            })
-        };
-        console.log(configObj);
+    //     if (validMobile(mobilePhone)) {
+    //     setMobileErrorSign('✔')
+    //     } else if(e.target.value){
+    //     setMobileErrorSign('✘')
+    //     }else{
+    //     setMobileErrorSign('กรุณากรอกเบอร์')
+    //     }
+    // }
 
-        fetch('http://localhost:4000/api/add',configObj)
-        .then(function(response){
-            return response.json();
-        })
-        .then(toy => {
-            console.log(toy);
-        })
+    // const submitRegisterForm = (next) => {
+        
+    //     console.log('submit')
+    //     if(
+    //     emailErrorSign === '✔' &&
+    //     mobileErrorSign === '✔' &&
+    //     passErrorSign === '✔' &&
+    //     nameErrorSign === '✔' &&
+    //     IDErrorSign === '✔' &&
+    //     roadErrorSign === '✔' &&
+    //     addressErrorSign === '✔' &&
+    //     dateErrorSign === '✔'
+    //     ){
+    //     let configObj = {
+    //         method: "POST",
+    //         headers :{
+    //         "Content-Type":"application/json",
+    //         "Accept":"application/json"
+    //         },
+    //         body:JSON.stringify({
+    //         Username : Username,
+    //         Password:Password,
+    //         Name:Name,
+    //         Email:Email,
+    //         Tell:Tell,
+    //         Birth:Birth,
+    //         Address:Address,
+    //         Road:Road,
+    //         District:district,
+    //         Sub_District:subDistrict,
+    //         Province:province,
+    //         Postal_code:postalCode
+    //         })
+    //     };
+    //     console.log(configObj);
 
-        }else{
-        alert("กรุณากรอกข้อมูลให้ถูกต้อง");
-        }
-    }
-    useEffect(()=>{
-        console.table(district,subDistrict,province,postalCode);
-    },[district,subDistrict,province,postalCode])
-    }
+    //     fetch('http://localhost:4000/api/add',configObj)
+    //     .then(function(response){
+    //         return response.json();
+    //     })
+    //     .then(toy => {
+    //         console.log(toy);
+    //     })
+
+    //     }else{
+    //     alert("กรุณากรอกข้อมูลให้ถูกต้อง");
+    //     }
+    // }
+    // useEffect(()=>{
+    //     console.table(district,subDistrict,province,postalCode);
+    // },[district,subDistrict,province,postalCode])
+    // }
 
 
     // --------------------------------------------like Page----------------------------------------------------------
     
     const [likeTab, setlikeTab] = useState([true, false, false]);
+
 
     const likeSwitch = (selectedTab) => {
         if (selectedTab === 1) {
@@ -310,6 +329,12 @@ const Profile = () => {
         }
     }
 
+    const showPopUpDog = (type) => {
+        if (type === 'Dog') {
+            // setPopUpDog(true)
+            // getTotalPaid()
+        }
+    }
 
     // --------------------------------------------Store Page----------------------------------------------------------
     
@@ -324,20 +349,19 @@ const Profile = () => {
         }
     }
 
-    // const dog = [
-    //     {
-    //       imgName: 'part3.png',
-    //       breed: 'สุนัขพันธ์ : บีเกิ้ล',
-    //       cost: 'ราคา  3500 บาท',
-    //       profile: 'คุณต้อม',
-    //     },
-    //     {
-    //       imgName: 'part3.png',
-    //       breed: 'สุนัขพันธ์ : บีเกิ้ล',
-    //       cost: 'ราคา  3500 บาท',
-    //       profile: 'คุณต้อม',
-    //       garuntee: true,
-    //     },
+    const [likeNameTab, setlikeNameTab] = useState([true, false, false]);
+
+    const likeNameSwitch = (selectedTab) => {
+        if (selectedTab === 1) {
+            setlikeNameTab([true, false, false])
+        }
+        else if (selectedTab === 2) {
+            setlikeNameTab([false, true, false])
+        }
+        else{
+            setlikeNameTab([false, false, true])
+        }
+    }
 
     // --------------------------------------------Payment Page----------------------------------------------------------
     const [classStyle, setClassStyle] = useState('menu-header')
@@ -459,7 +483,7 @@ const Profile = () => {
                                             <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
                                             <div id="title">สถานะการชำระเงิน</div>                          
                                     </li>
-                                    <li className ="row">
+                                    <li onClick={() => showPopUpExit('Exit')} className ="row">
                                             <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
                                             <div id="title">ออกจากระบบ</div>                          
                                     </li>
@@ -559,7 +583,7 @@ const Profile = () => {
                     
             </div>}
 
-
+{/* -----------------------------------------------LIKE PAGE---------------------------------------------------------------- */}
             {profileTab[1] && 
             <div className = "content2">
                 {popUp && <PopUp setPopUp={setPopUp} getTotalPaid={totalPaid} />}
@@ -608,7 +632,44 @@ const Profile = () => {
                                 <text className='money-header' onClick={() => likeSwitch(2)}>รอการตอบรับ</text>
                                 <text className='money-header' onClick={() => likeSwitch(3)}>ตอบรับแล้ว</text>
                             </div>
-                        </div>
+                            <div className='cards_all'>    
+                                <div className='cards__container'>  
+                                    <div className="row_img">                        
+                                        {CardItem_Accept.map((val,key)=> {
+                                            return(
+                                                    <div className='cards__wrapper' key={key}>
+                                                        <div className="img_wrapper" onClick={() => showPopUpDog('Dog')}>
+                                                            <div className="img_list">{val.imgName}</div> 
+                                                            <div className="img_text_bottom">
+                                                                <text>{val.breed}</text>
+                                                                <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                                <text>{'สถานะ :' + ' ' + val.status}</text>
+                                                                <div className='icon_details'>{val.icon}</div>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                            );
+                                        })}
+                                        {CardItem_Wait.map((val,key)=> {
+                                            return(
+                                                    <div className='cards__wrapper' key={key}>
+                                                        <div className="img_wrapper" onClick={() => showPopUpDog('Dog')} >
+                                                            <div className="img_list">{val.imgName}</div> 
+                                                            <div className="img_text_bottom">
+                                                                <text>{val.breed}</text>
+                                                                <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                                <text>{'สถานะ :' + ' ' + val.status}</text>
+                                                                <div className='icon_details'>{val.icon}</div>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
+                                            
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     }
                     {likeTab[1] &&
                         <div className='temp-money-pane'>
@@ -617,7 +678,28 @@ const Profile = () => {
                                 <text className='money-header-selected'>รอการตอบรับ</text>
                                 <text className='money-header' onClick={() => likeSwitch(3)}>ตอบรับแล้ว</text>
                             </div>
-                        </div>
+                            <div className='cards_all'>    
+                                <div className='cards__container'>  
+                                    <div className="row_img">                        
+                                        {CardItem_Wait.map((val,key)=> {
+                                            return(
+                                                <div className='cards__wrapper' key={key}>
+                                                    <div className="img_wrapper" onClick={() => showPopUpDog('Dog')}>
+                                                        <div className="img_list">{val.imgName}</div> 
+                                                        <div className="img_text_bottom">
+                                                            <text>{val.breed}</text>
+                                                            <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                            <text>{'สถานะ :' + ' ' + val.status}</text>
+                                                            <div className='icon_details'>{val.icon}</div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     }
                     {likeTab[2] &&
                         <div className='temp-money-pane'>
@@ -626,13 +708,34 @@ const Profile = () => {
                                 <text className='money-header' onClick={() => likeSwitch(2)}>รอการตอบรับ</text>
                                 <text className='money-header-selected'>ตอบรับแล้ว</text>
                             </div>
+                            <div className='cards_all'>    
+                                <div className='cards__container'>  
+                                    <div className="row_img">                        
+                                        {CardItem_Accept.map((val,key)=> {
+                                            return(
+                                                <div className='cards__wrapper' key={key}>
+                                                    <div className="img_wrapper" onClick={() => showPopUpDog('Dog')}>
+                                                        <div className="img_list">{val.imgName}</div> 
+                                                        <div className="img_text_bottom">
+                                                            <text>{val.breed}</text>
+                                                            <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                            <text>{'สถานะ :' + ' ' + val.status}</text>
+                                                            <div className='icon_details'>{val.icon}</div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
 
             </div>}
 
-
+{/* -----------------------------------------------STORE PAGE----------------------------------------------------------------  */}
             {profileTab[2] && 
             <div className = "content2">
                 {popUp && <PopUp setPopUp={setPopUp} getTotalPaid={totalPaid} />}
@@ -682,26 +785,25 @@ const Profile = () => {
                             </div>
                             <div className='cards_all'>
                                 <div className='cards__container'>
-                                    <div className='cards__wrapper'>
-                                        <div className="img_text">
-                                            <img className="img_list" src={Profile_Dog}/>
-                                            <div className="img_text_bottom">
-                                                <text>ชื่อพันธ์</text>
-                                                <text>ราคา</text>
-                                                <text>สถานะ</text>
-                                            </div>
-                                        </div>
-                                        <div className="img_text">
-                                            <img className="img_list" src={Profile_Dog}/>
-                                        </div>
-                                    </div> 
-                                    <div className='cards__wrapper'>
-                                        <img className="img_list" src={Profile_Dog}/>
-                                        <img className="img_list" src={Profile_Dog}/>
-                                    </div> 
-                                </div> 
+                                    <div className="row_img">
+                                        {CardStoreSell.map((val,key)=> {
+                                            return( 
+                                                <div className='cards__wrapper' key={key}>
+                                                    <div className="img_wrapper" onClick={() => profileSwitch(6)}>
+                                                        <div className="img_list">{val.imgName}</div>                                                                                                                                 
+                                                        <div className="img_text_bottom">
+                                                            <text>{val.breed}</text>
+                                                            <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                            <text>{'จำนวนคนสนใจ :' + ' ' + val.like}</text>
+                                                        </div> 
+                                                    </div>
+                                                </div>        
+                                            );
+                                        })} 
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                    </div>
                     }
                     {storeTab[1] &&
                         <div className='temp-money-pane'>
@@ -709,13 +811,33 @@ const Profile = () => {
                                 <text className='money-header' onClick={() => storeSwitch(1)} >กำลังขาย</text>
                                 <text className='money-header-selected'>ขายแล้ว</text>
                             </div>
+                            <div className='cards_all'>
+                                <div className='cards__container'>
+                                    <div className="row_img">
+                                        {CardStoreSold.map((val,key)=> {
+                                            return( 
+                                                <div className='cards__wrapper' key={key}>
+                                                    <div className="img_wrapper" onClick={() => profileSwitch(6)}>
+                                                        <div className="img_list">{val.imgName}</div> 
+                                                        <div className="img_text_bottom">
+                                                            <text>{val.breed}</text>
+                                                            <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                            <text>{'จำนวนคนสนใจ :' + ' ' + val.like}</text>
+                                                        </div> 
+                                                    </div>
+                                                </div>        
+                                            );
+                                        })} 
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     }
                 </div>
             </div>
         }
 
-
+{/* -----------------------------------------------PAYMENT PAGE---------------------------------------------------------------- */}
             {profileTab[3] && 
             <div className = "content2">
                 {popUp && <PopUp setPopUp={setPopUp} getTotalPaid={totalPaid} />}
@@ -865,7 +987,7 @@ const Profile = () => {
                 </div> 
             </div>}
             
-
+{/* -----------------------------------------------EDIT ACCOUNT PROFILE PAGE---------------------------------------------------------------- */}
             {profileTab[4] && 
             <div className = "content2">
                 {popUp && <PopUp setPopUp={setPopUp} getTotalPaid={totalPaid} />}
@@ -1021,15 +1143,175 @@ const Profile = () => {
                             ยกเลิก
                         </button>
                     </div>
-
+                            {/* <div className='sell-pane'>
+                                <button class="sell-button" onClick={() => showPopUp('Sell')}>
+                                    + ลงขาย
+                                </button>
+                            </div> */}
 
                 </div>                
             </div>}
 
 
-        </div>
+{/* -----------------------------------------------EDIT STORE PROFILE PAGE---------------------------------------------------------------- */}
+
+            {profileTab[5] && 
+            <div className = "content2">
+                {popUp && <PopUp setPopUp={setPopUp} getTotalPaid={totalPaid} />}
+                <div className="tab_one">
+                    <label>
+                        <div className='img_border'>
+                            <img className='img-wrap' src={Profile_Dog}/>
+                        </div>  
+                        {/* <input id="photo-upload" type="file" onChange={this.handleInputChange}/>  */}
+                    </label>
+                    <div className="profile_bar"> 
+                            <div className="SidebarList">
+                                    <li onClick={() => profileSwitch(1)} className ="row">
+                                            <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
+                                            <div id="title">บัญชีของฉัน</div>                                                                 
+                                    </li>
+                                    <li onClick={() => profileSwitch(2)} className ="row">
+                                            <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
+                                            <div id="title">สนใจ</div>                          
+                                    </li>
+                                    <li onClick={() => profileSwitch(3)} className ="row">
+                                            <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
+                                            <div id="title" style={{color: "#ED8E82" }}>ร้านค้าของฉัน</div>                          
+                                    </li>
+                                    <li onClick={() => profileSwitch(4)} className ="row">
+                                            <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
+                                            <div id="title">สถานะการชำระเงิน</div>                          
+                                    </li>
+                                    <li className ="row">
+                                            <div id="icon"><ArrowForwardIosIcon style={{ fontSize: 18 }}/></div> 
+                                            <div id="title">ออกจากระบบ</div>                          
+                                    </li>
+                            </div>
+                    </div>
+                </div>
+                    <div className='temp-money-pane'>
+                        {CardStoreSell.map((val,key)=> {
+                            return( 
+                                    <div className="store_page2">
+                                        <div className="Dog_box">
+                                            <div className="Dog_card">
+                                                <div className="img_dog">{val.imgName2}</div>  
+                                                <div className="img_dog_details">
+                                                    <div className="img_dog_small">{val.imgdetail1}</div>
+                                                    <div className="img_dog_small">{val.imgdetail2}</div>  
+                                                    <div className="img_dog_small">{val.imgdetail3}</div>
+                                                </div>
+                                            </div>
+                                            <div className="Text_card">
+                                                <div className="cancle" onClick={() => profileSwitch(3)}><CancelIcon className="C_hover" style={{ fontSize: 70 }}/></div>
+                                                <div className="garantee">{val.garantee}</div>
+                                                <div className="text_card_text1">{val.breed}</div>
+                                                <div className="text_card_text2">{'ราคา :' +' '+ val.cost}</div>
+                                                <div className="text_card_text1">{'เพศ :' +' '+val.sex}</div>
+                                                <div className="text_card_text1">{'อายุ :' +' '+val.age}</div>
+                                                <div className="text_card_text1">{'รายละเอียด :' }</div>
+                                                <div className="text_card_text3">{val.details}</div>
+                                                <div className="text_card_text4">{'ลงขายเมื่อวันที่ :' +' '+val.date}</div>
+                                                
+                                            </div>
+                                        </div>
+                                        {likeNameTab[0] &&
+                                            <div className="like_card">
+                                                 <div className="like_button_box">
+                                                    <button className="like_button_details_selected" onClick={() => likeNameSwitch(1)}>
+                                                        คนสนใจ
+                                                    </button>
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(2)}>
+                                                        ยอมรับ
+                                                    </button>
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(3)}>
+                                                        ยกเลิก
+                                                    </button>
+                                                </div>
+                                                <div className="like_card_details">
+                                                    <div className="Text_like_all">{'จำนวน' +' '+ val.like +' '+'คนสนใจ'}</div>
+                                                    {UserLike.map((val,key)=> {
+                                                        return( 
+                                                            <div className="block_user">
+                                                                <div className="img_block_user_detail">{val.pic_user}</div>
+                                                                <div className="name_block_user_detail">{val.user_like}</div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        }
+                                        {likeNameTab[1] &&
+                                            <div className="like_card">
+                                                <div className="like_button_box">
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(1)}>
+                                                        คนสนใจ
+                                                    </button>
+                                                    <button className="like_button_details_selected" onClick={() => likeNameSwitch(2)}>
+                                                        ยอมรับ
+                                                    </button>
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(3)}>
+                                                        ยกเลิก
+                                                    </button>
+                                                </div>
+                                                <div className="like_card_details">
+                                                    <div className="Text_like_all">{'จำนวน' +' '+ val.like +' '+'คนสนใจ'}</div>
+                                                    {UserAccept.map((val,key)=> {
+                                                        return( 
+                                                            <div className="block_user">
+                                                                <div className="img_block_user_detail">{val.pic_user}</div>
+                                                                <div className="name_block_user_detail">{val.user_like}</div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        }
+                                        {likeNameTab[2] &&
+                                            <div className="like_card">
+                                                <div className="like_button_box">
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(1)}>
+                                                        คนสนใจ
+                                                    </button>
+                                                    <button className="like_button_details" onClick={() => likeNameSwitch(2)}>
+                                                        ยอมรับ
+                                                    </button>
+                                                    <button className="like_button_details_selected" onClick={() => likeNameSwitch(3)}>
+                                                        ยกเลิก
+                                                    </button>
+                                                </div>
+                                                <div className="like_card_details">
+                                                    <div className="Text_like_all">{'จำนวน' +' '+ val.like +' '+'คนสนใจ'}</div>
+                                                    {UserCancle.map((val,key)=> {
+                                                        return( 
+                                                            <div className="block_user">
+                                                                <div className="img_block_user_detail">{val.pic_user}</div>
+                                                                <div className="name_block_user_detail">{val.user_like}</div>
+                                                            </div>
+                                                        );
+                                                    })}
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                            );
+                        })}
+                    </div>
+            </div>}
+    </div>
     );
 }
+{/*                                              <div className='cards__wrapper' key={key}>
+                                                    <div className="img_wrapper" onClick={() => profileSwitch(6)}>
+                                                        <div className="img_list">{val.imgName}</div>                                                                                                                                 
+                                                        <div className="img_text_bottom">
+                                                            <text>{val.breed}</text>
+                                                            <text>{'ราคา :' + ' ' + val.cost}</text>
+                                                            <text>{'จำนวนคนสนใจ :' + ' ' + val.like}</text>
+                                                        </div> 
+                                                    </div>
+                                                </div>  */}
 
 export default Profile
 
