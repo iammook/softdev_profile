@@ -6,7 +6,7 @@ import Profile from './img/profile3.jfif'
 import Profile2 from './img/profile7.jpg'
 import { colors } from '@material-ui/core';
 
-const UserCancle = [
+const UserCancel = [
 
         {
             pic_user: <img className="img_user_list" src={Profile}/>,
@@ -19,4 +19,4 @@ const UserCancle = [
     ]
 
 
-export default UserCancle;
+export default UserCancel;

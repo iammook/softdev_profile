@@ -41,7 +41,7 @@ import CardStoreSold from './CardStoreSold';
 import CardStoreSell from './CardStoreSell';
 import UserLike from './UserLike'
 import UserAccept from './UserAccept'
-import UserCancle from './UserCancle'
+import UserCancel from './UserCancel'
 
 
 library.add(fas, fab, far);
@@ -90,7 +90,7 @@ const Profile = () => {
     // --------------------------------------------Exit Page----------------------------------------------------------
     const showPopUpExit = (type) => {
         if (type === 'Exit') {
-            setPopUpExit(true)
+            // setPopUpExit(true)
             // getTotalPaid()
         }
     }
@@ -1204,7 +1204,7 @@ const Profile = () => {
                                                 </div>
                                             </div>
                                             <div className="Text_card">
-                                                <div className="cancle" onClick={() => profileSwitch(3)}><CancelIcon className="C_hover" style={{ fontSize: 70 }}/></div>
+                                                <div className="cancel" onClick={() => profileSwitch(3)}><CancelIcon className="C_hover" style={{ fontSize: 70 }}/></div>
                                                 <div className="garantee">{val.garantee}</div>
                                                 <div className="text_card_text1">{val.breed}</div>
                                                 <div className="text_card_text2">{'ราคา :' +' '+ val.cost}</div>
@@ -1283,7 +1283,7 @@ const Profile = () => {
                                                 </div>
                                                 <div className="like_card_details">
                                                     <div className="Text_like_all">{'จำนวน' +' '+ val.like +' '+'คนสนใจ'}</div>
-                                                    {UserCancle.map((val,key)=> {
+                                                    {UserCancel.map((val,key)=> {
                                                         return( 
                                                             <div className="block_user">
                                                                 <div className="img_block_user_detail">{val.pic_user}</div>

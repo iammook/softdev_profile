@@ -3,10 +3,10 @@ import './popUp.css';
 
 const PopUpExit = (props) => {
     // function that takes boolean as param to conditionally display popup
-    const setPopUpExit = props.setPopUpExit
+    // const setPopUpExit = props.setPopUpExit
     // const getTotalPaid = props.getTotalPaid
 
-    // const [Cancle, setCancle] = useState('ยกเลิก')
+    // const [Cancel, setCancel] = useState('ยกเลิก')
     // const [Accept, setAccept] = useState('ตกลง')
     return (
         <div className='pop_wrapper'>   
